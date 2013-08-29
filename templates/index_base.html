@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %} 
+    {% for article in (articles_page.object_list if articles_page else articles) %}
+	<article class="post type-post status-publish format-standard hentry">
+	    <header class="entry-header">
+		<div class="entry-title">
+		    <a href="{{ SITEURL }}/{{ article.url }}"><h2>{{ article.title }}</h2></a>
+		</div>
+	    </header>
+	    <div class="entry-content">{{ article.summary }} <a class="btn primary xsmall" href="{{ SITEURL }}/{{ article.url }}">more…</a></div>
+	    <footer class="entry-meta">
+		<p class="date">
+		    <span class="posted-on">On <time class="entry-date published" datetime="{{ article.date.strftime('%Y-%m-%d %H:%M') }}">{{ article.locale_date }}</time></span>
+		    <span class="byline"> by <span class="author vcard">{{ article.author }}</span></span>
+		</p>
+		<p class="categories">Category:
+		    <a href="{{ SITEURL }}/{{ article.category.url }}" rel="tag">{{ article.category }}</a>
+		</p>
+		<p class="tags">Tags: {% for tag in article.tags %}
+		    <span><a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a> / </span>{% endfor %}
+		</p>
+	    </footer>
+	</article>
+    {% endfor %}
+	<div style="clear: both;">&nbsp;</div>
+{% endblock content %}
+{% block pagination %}
+    {% if articles_page and articles_paginator.num_pages > 1 %}
+	{% set num = articles_page.previous_page_number() %}
+	<nav role="navigation" id="nav-below" class="paging-navigation">
+	    <h1 class="screen-reader-text">Post navigation</h1>
+	    {% if articles_page.has_previous() %}
+		<div class="nav-previous"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html" ><span class="meta-nav">&larr;</span> Newer posts</a></div>
+	    {% endif %}
+	    {% if articles_page.has_next() %}
+		<div class="nav-next"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html" >Older posts <span class="meta-nav">&rarr;</span></a></div>
+	    {% endif %}
+	</nav>
+	<div style="clear: both;">&nbsp;</div>
+    {% endif %}
+{% endblock %}

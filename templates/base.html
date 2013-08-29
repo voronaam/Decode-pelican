@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+<!--
+The blog's design is based on Alan Orth's blog: http://mjanja.co.ke/
+-->
+<link href="{{ SITEURL }}/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link rel='stylesheet' id='decode-font-stylesheet-css'  href='http://fonts.googleapis.com/css?family=Oxygen&#038;ver=3.6' type='text/css' media='all' />
+<link href="{{ SITEURL }}/theme/css/pygment.css" rel="stylesheet" type="text/css" media="all" />
+<link href="{{ SITEURL }}/theme/css/vorona.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+{% if FEED_RSS %}
+<link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+{% endif %}
+    <style type="text/css">
+        body, .sidebar, .SidebarTop, .main-navigation ul ul {
+	    background: #E3E5E7;
+	}
+
+	body, button, select, textarea, .site-title a, .no-touch .site-title a:hover, .no-touch .site-title a:active, .main-navigation a, .no-touch .main-navigation a:hover, .no-touch .main-navigation a:active, .entry-title, .search-entry, .search-entry .entry-title, .entry-title a, .format-link .entry-title h2 a, .author-name a, .explore-page .widget h1, .decode-reply-tool-plugin .replylink, .decode-reply-tool-plugin .replytrigger {
+	    color: #444444;
+	}
+	
+	    .SidebarMenuTrigger, .SidebarMenuClose, .SocialIconFill {
+	    fill: #444444;
+	}
+    
+	a, .no-touch a:hover, .no-touch .main-navigation a:hover, .search-entry:hover, .search-entry:hover .entry-title, .no-touch footer .date a:hover, .no-touch .format-link .entry-title a:hover, .no-touch .comment-metadata a:hover, .no-touch .decode-reply-tool-plugin .replylink:hover, .main-navigation li.current_page_item > a, .main-navigation li.current-menu-item > a {
+	    color: #009BCD;
+	}
+
+	.no-touch .entry-content a:hover, .no-touch .entry-meta a:hover, .site-header, .page-title, .post blockquote, .page blockquote, .post footer, .search .post, .search .page, .no-touch .theme-info a:hover, .SidebarTop, .sidebar.constant.left, .sidebar.constant.right, .no-touch .site-description a:hover, .explore-page .widget h1, .no-touch button:focus, .touch button:focus, .no-touch input[type='button']:focus, .touch input[type='button']:focus, .no-touch input[type='reset']:focus, .touch input[type='reset']:focus, .no-touch input[type='submit']:focus, .touch input[type='submit']:focus, .no-touch button:active, .touch button:active, .no-touch html input[type='button']:active, .touch html input[type='button']:active, .no-touch input[type='reset']:active, .touch input[type='reset']:active, .no-touch input[type='submit']:active, .touch input[type='submit']:active, .no-touch input[type='text']:focus, .touch input[type='text']:focus, .no-touch input[type='email']:focus, .touch input[type='email']:focus, .no-touch input[type='password']:focus, .touch input[type='password']:focus, .no-touch input[type='search']:focus, .touch input[type='search']:focus, .no-touch input[type="tel"]:focus, .touch input[type="tel"]:focus, .no-touch input[type="url"]:focus, .touch input[type="url"]:focus, .no-touch textarea:focus, .touch textarea:focus {
+	    border-color: #009BCD;
+	}
+
+	.no-touch a:active, .no-touch .main-navigation a:active, .search-entry:active, .search-entry:active .entry-title, .no-touch footer .date a:active, .no-touch .format-link .entry-title a:active, .no-touch .comment-metadata a:active, .no-touch .site-description a:active, .decode-reply-tool-plugin .replylink:active, .menu li.current_page_item > a:hover, .main-navigation li.current-menu-item > a:hover, .no-touch .decode-reply-tool-plugin .replylink:active {
+	    color: #007EA6;
+	}
+
+	.no-touch .entry-content a:active, .no-touch .entry-meta a:active, .no-touch .theme-info a:active, .no-touch .site-description a:active {
+	    border-color: #007EA6;
+	}
+
+	.tags, .categories, footer .date, footer .date a, .comment-metadata a {
+	    color: #808080;
+	}
+	
+		
+     </style>
+    <style type="text/css" id="custom-background-css">
+	body.custom-background { background-color: #E3E5E7; }
+    </style>
+</head>
+<body class="home blog custom-background">
+<div id="page" class="hfeed site sidebar-style-closing sidebar-style-left">
+    <header id="masthead" class="site-header" role="banner">
+	<div class="site-branding">
+	    <h1 class="site-title">
+		<a href="{{ SITEURL }}" title="{{ SITENAME }}" rel="home">{{ SITENAME }}</a>
+	    </h1>
+	    <h2 class="site-description">A random blog about software</h2>
+	</div>
+	<div class="sociallinks">
+	    <ul>
+	    </ul>
+	</div>
+	<nav id="site-navigation" class="main-navigation" role="navigation">
+	    <div class="screen-reader-text skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
+	    <div class="menu"><ul>
+		<li {{ homeClass }}><a href="{{ SITEURL }}" title="Home">Home</a></li>
+		<li {{ archivesClass }}><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+	    </ul></div>
+	</nav>
+    </header>
+
+    <div id="content" class="site-content">
+	<section id="primary" class="content-area">
+	    <main id="main" class="site-main" role="main">
+				{% block content %}
+                                {% endblock %}
+	    </main>
+	    {% block pagination %}
+	    {% endblock %}
+	</section>
+    </div><!-- #content -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="site-colophon">
+	    <p>Copyright (c) 2013 Aleksey Vorona.</p>
+        </div>
+    </footer>
+</div><!-- #page -->
+</body>
+</html>

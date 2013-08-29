@@ -1,0 +1,17 @@
+{% set archivesClass= 'class="current_page_item"' %}
+{% extends "base.html" %}
+{% block title %}Archives of {{ SITENAME }}{% endblock %}
+{% block content %}
+{% for year, date_year in dates|groupby( 'date.year' ) %}
+{% for month, articles in date_year|groupby( 'date.month' ) %}
+    <header class="page-header">
+	<h1 class="page-title">{{ articles[ 0 ].date.strftime( '%B' ) }} {{ year }} </h1>
+    </header>
+    <ul>
+	{% for article in articles %}
+	<li>[{{ article.date.strftime( '%d' ) }}] <a href="{{ article.url }}">{{ article.title }}</a></li>
+	{% endfor %}
+    </ul>
+{% endfor %}
+{% endfor %}
+{% endblock %}

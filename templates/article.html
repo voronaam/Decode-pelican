@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+
+        <article class="post type-post status-publish format-standard hentry">
+            <header class="entry-header">
+                <div class="entry-title">
+                    <a href="{{ SITEURL }}/{{ article.url }}"><h2>{{ article.title }}</h2></a>
+                </div>
+            </header>
+            <div class="entry-content">{{ article.content }}</div>
+            <footer class="entry-meta">
+                <p class="date">
+                    <span class="posted-on">On <time class="entry-date published" datetime="{{ article.date.strftime('%Y-%m-%d %H:%M') }}">{{ article.locale_date }}</time></span>
+                    <span class="byline"> by <span class="author vcard">{{ article.author }}</span></span>
+                </p>
+                <p class="categories">Category:
+                    <a href="{{ SITEURL }}/{{ article.category.url }}" rel="tag">{{ article.category }}</a>
+                </p>
+                <p class="tags">Tags: {% for tag in article.tags %}
+                    <span><a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a> / </span>{% endfor %}
+                </p>
+            </footer>
+        </article>
+{% endblock %}

@@ -76,7 +76,14 @@ The blog's design is based on Alan Orth's blog: http://mjanja.co.ke/
 	    <div class="screen-reader-text skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
 	    <div class="menu"><ul>
 		<li {{ homeClass }}><a href="{{ SITEURL }}" title="Home">Home</a></li>
+        {% if DISPLAY_PAGES_ON_MENU %}
+        {% for page in PAGES %}
+          <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+        {% endfor %}
+            <li class="divider-vertical"></li>
+		{% endif %}
 		<li {{ archivesClass }}><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+       
 	    </ul></div>
 	</nav>
     </header>

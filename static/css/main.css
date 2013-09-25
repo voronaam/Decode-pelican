@@ -1,5 +1,4 @@
-    <style type="text/css">
-        body, .sidebar, .SidebarTop, .main-navigation ul ul {
+    body, .sidebar, .SidebarTop, .main-navigation ul ul {
 	    background: #E3E5E7;
 	}
 
@@ -32,7 +31,7 @@
 	}
 	
 		
-     </style>
-    <style type="text/css" id="custom-background-css">
-	body.custom-background { background-color: #E3E5E7; }
-    </style>
+    
+	body.custom-background { 
+		background-color: #E3E5E7;
+	 }

@@ -44,12 +44,12 @@ The blog's design is based on Alan Orth's blog: http://mjanja.co.ke/
         {% endfor %}
         {% if DISPLAY_PAGES_ON_MENU %}
           {% for p in PAGES %}
-            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            <li{% if p == page %} class="current_page_item"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
           {% endfor %}
         {% else %}
           {% if DISPLAY_CATEGORIES_ON_MENU %}
             {% for cat, null in categories %}
-              <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+              <li{% if cat == category %} class="current_page_item"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
             {% endfor %}
           {% endif %}
         {% endif %}
@@ -72,9 +72,15 @@ The blog's design is based on Alan Orth's blog: http://mjanja.co.ke/
     </div><!-- #content -->
 
     <footer id="colophon" class="site-footer" role="contentinfo">
-	<div class="site-colophon">
+	<!-- <div class="site-colophon">
 	    <p>Copyright (c) 2013 Aleksey Vorona.</p>
         </div>
+		-->
+        <address id="about" class="site-colophon">
+        Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+        which takes great advantage of <a href="http://python.org">Python</a>.<br>
+		The theme is <a href="http://github.com/voronaam/Decode-pelican">Decode</a>, ported by <a href="http://vorona.ca">Aleksey Vorona</a>, thanks!
+        </address>
     </footer>
 </div><!-- #page -->
 {% include 'disqus_comment_counts.html' %}

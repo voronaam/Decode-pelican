@@ -63,7 +63,10 @@ The blog's design is based on Alan Orth's blog: http://mjanja.co.ke/
 	    <h1 class="site-title">
 		<a href="{{ SITEURL }}" title="{{ SITENAME }}" rel="home">{{ SITENAME }}</a>
 	    </h1>
-	    <h2 class="site-description">A random blog about software</h2>
+		{% if SITESUBTITLE %} 
+		<h2 class="site-description">{{ SITESUBTITLE }}</h2>
+		{% endif %}
+	    
 	</div>
 	<div class="sociallinks">
 	    <ul>

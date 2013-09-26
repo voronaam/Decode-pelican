@@ -84,7 +84,11 @@ The blog's design is based on Alan Orth's blog: http://mjanja.co.ke/
         </address>
     </footer>
 </div><!-- #page -->
-{% include 'analytics.html' %}
-{% include 'disqus_comment_counts.html' %}
+{% if GOOGLE_ANALYTICS %}
+	{% include 'analytics.html' %}
+{% endif %}
+{% if DISQUS_SITENAME %}
+	{% include 'disqus_comment_counts.html' %}
+{% endif %}	
 </body>
 </html>

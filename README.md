@@ -8,11 +8,13 @@ This is still work in progress theme. It requires Pelican version 3.0 or greater
 At the moment it does not have a sidebar, tag cloud and lacks social buttons. I have also removed Google Analitics and Disqus integration.
 The last two was the conscious choice: I do not think such a secondary features should require JavaScript.
 
-EDIT : Added Disqus comments, Google analytics. Some People do use them, don't use the relevant settings in pelicanconf.py if you do not need them.
 
 I am going to address the sidebar and social buttons issues first.
 
 License: GPL v3
+
+EDIT : Added Disqus comments, Google analytics. Some People do use them, don't use the relevant settings in pelicanconf.py if you do not need them.
+
 
 This supports all of these settings (which you would add to the pelicanconf.py file).
 

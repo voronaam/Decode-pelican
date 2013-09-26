@@ -25,3 +25,6 @@ GITHUB_URL	Your github URL (if you have one), it will then use it to create a gi
 ```
 MENUITEMS	A list of tuples (Title, Url) for additional menu items to appear at the beginning of the main menu.
 ```
+```
+GOOGLE_ANALYTICS	‘UA-XXXX-YYYY’ to activate google analytics.
+```

@@ -8,10 +8,10 @@
 		    <a href="{{ SITEURL }}/{{ article.url }}"><h2>{{ article.title }}</h2></a>
 		</div>
 	    </header>
-	    <div class="entry-content">{{ article.summary }} <a class="btn primary xsmall" href="{{ SITEURL }}/{{ article.url }}">more…</a></div>
+	    <div class="entry-content">{{ article.summary }} <a class="btn primary xsmall" href="{{ SITEURL }}/{{ article.url }}">Read more…</a></div>
 	    <footer class="entry-meta">
 		<p class="date">
-		    <span class="posted-on">On <time class="entry-date published" datetime="{{ article.date.strftime('%Y-%m-%d %H:%M') }}">{{ article.locale_date }}</time></span>
+		    <span class="posted-on">Posted On <time class="entry-date published" datetime="{{ article.date.strftime('%Y-%m-%d %H:%M') }}">{{ article.locale_date }}</time></span>
 		    <span class="byline"> by <span class="author vcard">{{ article.author }}</span></span>
 		</p>
 		<p class="categories">Category:
